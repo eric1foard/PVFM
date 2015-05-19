@@ -35,14 +35,14 @@ class User extends BaseUser
     /**
      * @var boolean
      *
-     * @ORM\Column(name="attending", type="boolean", nullable=false)
+     * @ORM\Column(name="attending", type="boolean", nullable=true)
      */
     protected $attending;
 
     /**
      * @var boolean
      *
-     * @ORM\Column(name="confirmed", type="boolean", nullable=false)
+     * @ORM\Column(name="confirmed", type="boolean", nullable=true)
      */
     protected $confirmed;
 
