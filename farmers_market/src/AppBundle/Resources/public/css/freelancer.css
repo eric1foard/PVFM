@@ -457,3 +457,9 @@ footer .footer-below {
     display: none;
     opacity: 0;
 }
+
+.fos_user_registration_register{
+    padding-top: 150px;
+    padding-left: 20px;
+    width: 75%;
+}

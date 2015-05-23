@@ -12,6 +12,8 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('default/index.html.twig');
+    	$userManager = $this->get('fos_user.user_manager');
+    	$users = $userManager->findUsers();
+        return $this->render('default/index.html.twig', array('users' =>   $users));
     }
 }
