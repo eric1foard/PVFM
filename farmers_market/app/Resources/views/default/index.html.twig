@@ -62,9 +62,9 @@
 
                 <p align="center" style="margin-top: 20px;">{{ user.bio|length > 50 ? user.bio|slice(0, 50) ~ '...' : user.bio  }}</p>
                 <!-- Making div clickable -->
+                </div>
                 <a href="{{ path('fos_user_profile_show') }}">
                     <span class="hyperspan"></span></a>
-                </div>
             </div>
             {% if count is divisibleby(4)%}
         </div>
