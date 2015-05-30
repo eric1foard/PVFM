@@ -49,8 +49,8 @@
 						<td>
 
 							<div class="btn-group">
-								<a href="#" class="btn btn-med btn-warning">Edit</a>
-								<a href="#" class="btn btn-med btn-danger">Delete</a>
+								<a href="{{ path('user_edit', {'id': user.id}) }}" class="btn btn-med btn-warning">Edit</a>
+								<a href="{{ path('user_delete', {'id': user.id}) }}" class="btn btn-med btn-danger">Delete</a>
 							</div>
 
 						</td>

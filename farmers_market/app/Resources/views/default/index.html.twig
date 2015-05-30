@@ -36,6 +36,7 @@
 
 <!-- About Section -->
 <section class="success" id="about">
+
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12 text-center">
@@ -43,35 +44,15 @@
 				<hr class="star-light">
 			</div>
 		</div>
-		
-			<div class="col-md-12">
-    {% set count = 0 %}
-    {% if users is defined %}
-    {% for user in users %}
 
-    {% if count is divisibleby(4) or count==0 %}
-    <div class="row">
-        {% endif %}
-        <div class="col-md-3">
-            {% set count = count + 1 %}
-            <div class="well tile" style="height: 150px;">
-                 <a href="{{ path('fos_user_profile_show') }}">
-                    <h4 align="center" style="color: #000;">{{user.username}}</h4>
-                </a>
-                <hr style="border-top: 1px solid #A1C22D;">
+		<div ng-controller="userCtrl">
 
-                <p align="center" style="margin-top: 20px;">{{ user.bio|length > 50 ? user.bio|slice(0, 50) ~ '...' : user.bio  }}</p>
-                <!-- Making div clickable -->
-                </div>
-                <a href="{{ path('fos_user_profile_show') }}">
-                    <span class="hyperspan"></span></a>
-            </div>
-            {% if count is divisibleby(4)%}
-        </div>
-        {% endif %}
-        {% endfor %}
-        {% endif %}
-    </div>
+			<p>{{'{{test}}'}}</p>
+
+			<div ng-repeat="user in users">
+			<p>{{'{{user}}'}}</p>
+		</div>
+		</div>
 		
 	</div>
 </section>
@@ -132,51 +113,7 @@
 </section>
 
 <!-- Footer -->
-<footer class="text-center">
-	<div class="footer-above">
-		<div class="container">
-			<div class="row">
-				<div class="footer-col col-md-4">
-					<h3>Location</h3>
-					<p>3481 Melrose Place<br>Beverly Hills, CA 90210</p>
-				</div>
-				<div class="footer-col col-md-4">
-					<h3>Around the Web</h3>
-					<ul class="list-inline">
-						<li>
-							<a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
-						</li>
-						<li>
-							<a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-google-plus"></i></a>
-						</li>
-						<li>
-							<a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
-						</li>
-						<li>
-							<a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a>
-						</li>
-						<li>
-							<a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-dribbble"></i></a>
-						</li>
-					</ul>
-				</div>
-				<div class="footer-col col-md-4">
-					<h3>About Freelancer</h3>
-					<p>Freelance is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="footer-below">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					Copyright &copy; Your Website 2014
-				</div>
-			</div>
-		</div>
-	</div>
-</footer>
+
 
 <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
 <div class="scroll-top page-scroll visible-xs visible-sm">
@@ -185,234 +122,9 @@
 	</a>
 </div>
 
-<!-- Portfolio Modals -->
-<div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
-	<div class="modal-content">
-		<div class="close-modal" data-dismiss="modal">
-			<div class="lr">
-				<div class="rl">
-				</div>
-			</div>
-		</div>
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-8 col-lg-offset-2">
-					<div class="modal-body">
-						<h2>Project Title</h2>
-						<hr class="star-primary">
-						<img src="img/portfolio/cabin.png" class="img-responsive img-centered" alt="">
-						<p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
-						<ul class="list-inline item-details">
-							<li>Client:
-								<strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-								</strong>
-							</li>
-							<li>Date:
-								<strong><a href="http://startbootstrap.com">April 2014</a>
-								</strong>
-							</li>
-							<li>Service:
-								<strong><a href="http://startbootstrap.com">Web Development</a>
-								</strong>
-							</li>
-						</ul>
-						<button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
-	<div class="modal-content">
-		<div class="close-modal" data-dismiss="modal">
-			<div class="lr">
-				<div class="rl">
-				</div>
-			</div>
-		</div>
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-8 col-lg-offset-2">
-					<div class="modal-body">
-						<h2>Project Title</h2>
-						<hr class="star-primary">
-						<img src="img/portfolio/cake.png" class="img-responsive img-centered" alt="">
-						<p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
-						<ul class="list-inline item-details">
-							<li>Client:
-								<strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-								</strong>
-							</li>
-							<li>Date:
-								<strong><a href="http://startbootstrap.com">April 2014</a>
-								</strong>
-							</li>
-							<li>Service:
-								<strong><a href="http://startbootstrap.com">Web Development</a>
-								</strong>
-							</li>
-						</ul>
-						<button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
-	<div class="modal-content">
-		<div class="close-modal" data-dismiss="modal">
-			<div class="lr">
-				<div class="rl">
-				</div>
-			</div>
-		</div>
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-8 col-lg-offset-2">
-					<div class="modal-body">
-						<h2>Project Title</h2>
-						<hr class="star-primary">
-						<img src="img/portfolio/circus.png" class="img-responsive img-centered" alt="">
-						<p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
-						<ul class="list-inline item-details">
-							<li>Client:
-								<strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-								</strong>
-							</li>
-							<li>Date:
-								<strong><a href="http://startbootstrap.com">April 2014</a>
-								</strong>
-							</li>
-							<li>Service:
-								<strong><a href="http://startbootstrap.com">Web Development</a>
-								</strong>
-							</li>
-						</ul>
-						<button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
-	<div class="modal-content">
-		<div class="close-modal" data-dismiss="modal">
-			<div class="lr">
-				<div class="rl">
-				</div>
-			</div>
-		</div>
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-8 col-lg-offset-2">
-					<div class="modal-body">
-						<h2>Project Title</h2>
-						<hr class="star-primary">
-						<img src="img/portfolio/game.png" class="img-responsive img-centered" alt="">
-						<p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
-						<ul class="list-inline item-details">
-							<li>Client:
-								<strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-								</strong>
-							</li>
-							<li>Date:
-								<strong><a href="http://startbootstrap.com">April 2014</a>
-								</strong>
-							</li>
-							<li>Service:
-								<strong><a href="http://startbootstrap.com">Web Development</a>
-								</strong>
-							</li>
-						</ul>
-						<button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
-	<div class="modal-content">
-		<div class="close-modal" data-dismiss="modal">
-			<div class="lr">
-				<div class="rl">
-				</div>
-			</div>
-		</div>
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-8 col-lg-offset-2">
-					<div class="modal-body">
-						<h2>Project Title</h2>
-						<hr class="star-primary">
-						<img src="img/portfolio/safe.png" class="img-responsive img-centered" alt="">
-						<p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
-						<ul class="list-inline item-details">
-							<li>Client:
-								<strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-								</strong>
-							</li>
-							<li>Date:
-								<strong><a href="http://startbootstrap.com">April 2014</a>
-								</strong>
-							</li>
-							<li>Service:
-								<strong><a href="http://startbootstrap.com">Web Development</a>
-								</strong>
-							</li>
-						</ul>
-						<button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
-	<div class="modal-content">
-		<div class="close-modal" data-dismiss="modal">
-			<div class="lr">
-				<div class="rl">
-				</div>
-			</div>
-		</div>
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-8 col-lg-offset-2">
-					<div class="modal-body">
-						<h2>Project Title</h2>
-						<hr class="star-primary">
-						<img src="img/portfolio/submarine.png" class="img-responsive img-centered" alt="">
-						<p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
-						<ul class="list-inline item-details">
-							<li>Client:
-								<strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-								</strong>
-							</li>
-							<li>Date:
-								<strong><a href="http://startbootstrap.com">April 2014</a>
-								</strong>
-							</li>
-							<li>Service:
-								<strong><a href="http://startbootstrap.com">Web Development</a>
-								</strong>
-							</li>
-						</ul>
-						<button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
 <!-- Ajax form submit bundle -->
 {% include 'DiviAjaxLoginBundle:Javascript:init.html.twig' with {'form_selector': '#form-login'} %}
 
-{% include 'DiviAjaxLoginBundle:Javascript:init.html.twig' with {'form_selector': '#form-register'} %}
 
 <!-- Modal -->
 <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -433,60 +145,23 @@
 					<div align="center">
 						<label for="password">{{  'security.login.password'|trans({}, 'FOSUserBundle') }}</label>
 						<input type="password" id="password" name="_password" required="required" />
-</br>
-						<label for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
-						<input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-					</div><br>
+					</br>
+					<label for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
+					<input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+				</div><br>
 
-					<div align="center">
-						
-					</div></br>
+				<div align="center">
 
-						<input class="btn btn-primary" type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" />
-					</form>
-				</div>
-				<div class="modal-footer">
+				</div></br>
 
-				</div>
-			</div>
+				<input class="btn btn-primary" type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" />
+			</form>
+		</div>
+		<div class="modal-footer">
+
 		</div>
 	</div>
+</div>
+</div>
 
-	<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title" id="myModalLabel">Register</h4>
-			</div>
-			<div class="modal-body">
-				<form action="{{ path("fos_user_registration_register") }}" method="post" id="form-register">
-
-					<input type="hidden" name="_csrf_token" value="{{ fos_csrf_provider.generateCsrfToken('authenticate') }}" />
-
-					<div align="center">
-						<label  for="username">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label>
-						<input type="text" id="username" name="_username" value="{% if last_username is defined %} {{ last_username }} {% endif %}" required="required" /><br>
-					</div>
-					<div align="center">
-						<label for="password">{{  'security.login.password'|trans({}, 'FOSUserBundle') }}</label>
-						<input type="password" id="password" name="_password" required="required" />
-</br>
-						<label for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
-						<input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-					</div><br>
-
-					<div align="center">
-						
-					</div></br>
-
-						<input class="btn btn-primary" type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" />
-					</form>
-				</div>
-				<div class="modal-footer">
-
-				</div>
-			</div>
-		</div>
-	</div>
-	{% endblock %}
+{% endblock %}
