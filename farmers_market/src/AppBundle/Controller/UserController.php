@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use AppBundle\Entity\User;
@@ -198,20 +199,47 @@ class UserController extends Controller
         return $this->redirect($this->generateUrl('_admin'));
     }
 
-        /**
-     * returns all users for AJAX
+    /**
+     * AJAXly returns IDs and usernames of all users
      *
      */
-    public function getAllAction($id)
+    public function getAllIDsAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $users = $em->getRepository('AppBundle:User')->findAll();
+        $usersFromDoctrine = $em->getRepository('AppBundle:User')->findAll();
 
-        if (!$users) {
+        if (!$usersFromDoctrine) 
+        {
             throw $this->createNotFoundException('Unable retrieve users!');
         }
 
-        return $users;
+        $users = array();
+
+        foreach ($usersFromDoctrine as $user)
+        {
+            $users[$user->getId()] = array(
+                "id" => $user->getId(),
+                "username" => $user->getUsername()
+                );
+        }
+
+        return new JsonResponse($users);
     }
 
+    //Return a JSON response for the AJAX call that
+    //renders the modal to show vendor info
+    public function getUserInfoAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository('AppBundle:User')->find($id);
+
+        $userInfo = array(
+            "id" => $user->getId(),
+            "username" => $user->getUsername(),
+            "productInfo" => $user->getProductInfo(),
+            "bio" => $user->getBio()
+            );
+
+        return new JsonResponse($userInfo);
+    }
 }

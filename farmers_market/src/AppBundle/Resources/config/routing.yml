@@ -18,9 +18,19 @@ _admin:
 #################################
 ##             AJAX            ##
 #################################
-_get_users:
-    path:     /user/getAll
-    defaults: { _controller: AppBundle:User:getAll }
+_get_users_ids:
+    path:     /user/getAllIDs
+    defaults: { _controller: AppBundle:User:getAllIDs }
+    requirements:
+        _format: json
+        methods: GET
+
+_get_user_info:
+    path:     /user/getUserInfo/{id}
+    defaults: { _controller: AppBundle:User:getUserInfo }
+    requirements:
+        _format: json
+        methods: GET
 
 
 #################################
